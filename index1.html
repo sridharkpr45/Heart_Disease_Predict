@@ -1,0 +1,115 @@
+<!--GUI for Breast Cancer Detection Application using SVM-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='index2.css') }}">
+  <title>Heart</title>  
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 style="color:white" class="head" >Heart Disease Prediction</h1>
+		    <h4 style="color:white;text-align:center;">Enter The Details</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="btn-container">
+
+          <!-- Main Input For Receiving Query to our ML -->
+          <form action="{{ url_for('predict')}}" method="post"  class="p-4 mx-auto" style="max-width: 600px; background-color: rgba(255, 255, 255, 0.05); border-radius: 15px;">                  
+                  <div class="form-group">
+                    <label style="color:white" for="age" >Age</label>
+                    <input type="text" class="form-control" name="age" required="required" align="right"/>
+                  </div>
+                  <div class="form-group">
+                    <label style="color:white" for="sex">Gender</label>
+                    <select class="form-control" name="gender" required>
+                       <option value="">Select</option>
+                       <option value="0">Female</option>
+                       <option value="1">Male</option>
+                    </select>
+                   <!--- <input type="text" class="form-control" name="sex" required="required" align="right"/> -->
+                  </div>
+                  <div class="form-group">
+                    <label style="color:white" for="cp">ChestPainType</label>
+                     <select class="form-control" name="cp" required>
+                        <option value="">Select</option>
+                        <option value="0">Typical Angina</option>
+                        <option value="1">Atypical Angina</option>
+                        <option value="2">Non-anginal Pain</option>
+                        <option value="3">Asymptomatic</option>
+                    </select>
+                   <!--- <input type="text" class="form-control" name="cp" required="required" align="right" /> -->
+                  </div>
+                  <div class="form-group">
+                    <label style="color:white" for="Rbp">RestingBP</label>
+                    <input type="text" class="form-control" name="Rbp" required="required"align="right" />
+                  </div>
+				           <div class="form-group">
+                    <label style="color:white" for="chol">Cholesterol</label>
+                    <input type="text" class="form-control" name="Chol" required="required"align="right" />
+                  </div>
+				          <div class="form-group">
+                    <label style="color:white" for="fbs">FastingBS</label>
+                    <input type="text" class="form-control" name="fbs" required="required"align="right" />
+                  </div>
+				          <div class="form-group">
+                    <label style="color:white" for="recg">RestingECG</label>
+                    <select class="form-control" name="ecg" required>
+                       <option value="">Select</option>
+                       <option value="0">Normal</option>
+                       <option value="1">ST-T Wave Abnormality</option>
+                       <option value="2">Left Ventricular Hypertrophy</option>
+                    </select>
+                    <!--<input type="text" class="form-control" name="recg" required="required"align="right" /> -->
+                  </div>
+				          <div class="form-group">
+                    <label style="color:white" for="mhr">MaxHR</label>
+                    <input type="text" class="form-control" name="mhr" required="required"align="right" />
+                  </div>
+                  <div class="form-group">
+                    <label style="color:white" for="ex">ExerciseAngina</label>
+                     <select class="form-control" name="ex" required>
+                        <option value="">Select</option>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                     </select>
+                   <!-- <input type="text" class="form-control" name="ex" required="required"  /> -->
+                  </div>
+				          <div class="form-group">
+                    <label style="color:white" for="op">Oldpeak</label>
+                    <input type="text" class="form-control" name="op" required="required"  />
+                  </div>
+				          <div class="form-group">
+                    <label style="color:white" for="slp">ST_Slope</label>
+                    <select class="form-control" name="slp" required>
+                       <option value="">Select</option>
+                       <option value="0">Upsloping</option>
+                       <option value="1">Flat</option>
+                       <option value="2">Downsloping</option>
+                    </select>
+                    <!--<input type="text" class="form-control" name="slp" required="required"  /> -->
+                  </div>
+   
+
+                 <br>
+                  <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+          </form>
+		  <br>
+        <center>
+          <h2 style="background:#AFEEEE">{{prediction_text}}</h2>
+        </center>
+        <br />
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

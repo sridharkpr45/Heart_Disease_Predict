@@ -1,0 +1,107 @@
+body 
+{
+  font-family: Arial, sans-serif;
+  background-image: url("/static/image/image6.gif");
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+   margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+/* Page heading */
+.head {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Form container */
+.container .form-inline {
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  animation: fadeIn 1.5s ease;
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+}
+
+
+
+input.form-control,
+select.form-control {
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 8px;
+}
+
+
+/* Input and select */
+.form-control {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Label styling */
+label {
+  color: white;
+  font-weight: 500;
+}
+
+/* Submit button */
+.btn-primary {
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  background-color: #0056b3;
+}
+
+/* Prediction text */
+h2 {
+  color: #000;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
