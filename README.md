@@ -37,19 +37,42 @@ This project aims to apply machine learning to support early detection of heart 
 - **Target**: HeartDisease (0 = No, 1 = Yes)
 - **Input Features**: Age, Gender, Chest Pain Type, FastingBS, Cholesterol, RestingECG, MaxHR, Exercise Angina, Oldpeak, ST_Slope.
 
-#👥 User Flow
+##👥 User Flow
     1.Register a new user account
     2.Log in to the system
     3.Enter medical details into the form
     4.Click Submit to get prediction results
     5.Log out when done
 
+## important 
+ heart-disease-prediction
+├── app.py
+├── model.pkl
+├── heart.csv
+├── requirements.txt
+├── README.md
+├── static/
+│   ├── index2.css
+│   ├── login.css
+│   └── image/
+│       ├── image6
+│       └── image7
+├── templates/
+│   ├── index1.html
+│   ├── login.html
+│   └── register.html
+└── assets/
+    ├── login
+    └── predict
+
+
+
 ## 📷 Screenshots
 
 ### 🔐 Login Page
-![Login Screenshot](assets/login.png)
+![Login Screenshot](login.png)
 
 ### 📊 Prediction Page
-![Prediction Screenshot](assets/result.png)
+![Prediction Screenshot](predict.png)
 
 
